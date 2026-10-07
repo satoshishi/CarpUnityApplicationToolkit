@@ -3,7 +3,6 @@ using System.Threading;
 using CTK.DataEvent;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace CTK.Addressable
 {
@@ -21,10 +20,9 @@ namespace CTK.Addressable
         /// <returns>ロードされたアセットの配列</returns>
         public async UniTask<T[]> LoadAsync(string groupName, CancellationToken token)
         {
-            AsyncOperationHandle<IList<T>> handle =
-                Addressables.LoadAssetsAsync<T>(groupName, null);
+            var handle = Addressables.LoadAssetsAsync<T>(groupName, null);
 
-            IList<T> result = await handle.ToUniTask(cancellationToken: token);
+            IList<T> result = await handle.Task.WithCancellation(token);
 
             T[] array = new T[result.Count];
             result.CopyTo(array, 0);
