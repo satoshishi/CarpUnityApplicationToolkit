@@ -22,7 +22,7 @@ namespace CTK.Addressable
         {
             var handle = Addressables.LoadAssetsAsync<T>(groupName, null);
 
-            IList<T> result = await handle.Task.WithCancellation(token);
+            IList<T> result = await handle.Task.AsUniTask().AttachExternalCancellation(token);
 
             T[] array = new T[result.Count];
             result.CopyTo(array, 0);
