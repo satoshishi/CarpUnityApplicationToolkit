@@ -1,0 +1,22 @@
+{
+  "name": "com.ctk.toolkit",
+  "version": "0.1.0",
+  "displayName": "CTK - Carp Unity Application Toolkit",
+  "description": "A modular application framework for Unity 6 providing state machine, reactive events, UI management, file loading, and DI-based composition root.",
+  "unity": "6000.0",
+  "author": {
+    "name": "CarpUnityApplicationToolkit"
+  },
+  "dependencies": {
+    "com.unity.addressables": "2.9.1",
+    "com.unity.ugui": "2.0.0"
+  },
+  "keywords": [
+    "state-machine",
+    "reactive",
+    "ui",
+    "di",
+    "vcontainer",
+    "unitask"
+  ]
+}
