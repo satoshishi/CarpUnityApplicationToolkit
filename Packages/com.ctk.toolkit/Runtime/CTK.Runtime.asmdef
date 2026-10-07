@@ -5,6 +5,7 @@
     "VContainer",
     "UniTask",
     "Unity.Addressables",
+    "Unity.ResourceManager",
     "Unity.TextMeshPro"
   ],
   "includePlatforms": [],
